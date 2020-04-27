@@ -27,9 +27,6 @@ app.use(compression());
 
 
 
-var firstrouter=require('./routes/firstRoute');
-app.use('/',firstrouter);
-
 var materialrouter=require('./routes/recycleRoute');
 app.use('/recycle',materialrouter);
 

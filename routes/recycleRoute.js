@@ -6,13 +6,19 @@ var Mat=require('../models/materials');
 
 router.post('/check',(req,res)=>{
     console.log(req.body);
-    var sensor='rain';
-    var value='humidity';
-    var floor='temperature';
-    // console.log(tmp);
-    // Nature.insertData(rain,req.body.rain);
-    // Nature.insertData(humid,req.body.humidity);
-    // Nature.insertData(temp,req.body.temp);
+    var entUltra='entUltra';
+    var fUltra='fUltra';
+    var sUltra='sUltra';
+    var checkMetal='checkMetal';
+    var frequency='frequency';
+    var sound='sound';
+    Mat.insertData(entUltra,req.body.entUltra);
+    Mat.insertData(fUltra,req.body.fUltra);
+    Mat.insertData(sUltra,req.body.sUltra);
+    Mat.insertData(checkMetal,req.body.checkMetal);
+    Mat.insertData(frequency,req.body.frequency);
+    Mat.insertData(sound,req.body.sound);
+
 });
 
 router.get('/readDataAll', (req, res) =>{
@@ -25,5 +31,6 @@ router.get('/sendvalue',(req,res)=>{
     // console.log('보낼값',a);
     // res.json(a);
    // Nature.extractData(res);
+   Mat.extractData(res);
 });
 module.exports = router;
