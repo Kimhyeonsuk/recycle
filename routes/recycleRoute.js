@@ -22,6 +22,7 @@ router.post('/check',(req,res)=>{
 });
 
 router.get('/readDataAll', (req, res) =>{
+   console.log('connect!');
    Mat.showData(res);
 });
 

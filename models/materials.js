@@ -50,8 +50,7 @@ module.exports.extractData = function (res) {
 
   Mat.find( (err, data) => {
     if (err) return res.status(500).send({ err: 'database failure' });
-    
-
+  
     if(data[1].value!=-1){
       if(data[1]<30){
         if(data[0]<30){//물건이 들어오고 안드로이드에 경고 보내야함
