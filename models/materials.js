@@ -4,7 +4,6 @@ var Schema = mongoose.Schema;
 var materialSchema = new Schema({
   sensor: String,
   value: Number,
-  floor: Number
 }, { versionKey: false });
 
 
@@ -26,7 +25,7 @@ module.exports.insertData = function (sensor, val) {
   var query = { sensor: sensor };
   var operator = { sensor: sensor, value: val };
   var option = { upsert: true };
-  Nature.replaceOne(query, operator, option, function (err, upserted) {
+  Mat.replaceOne(query, operator, option, function (err, upserted) {
     if (err) {
       console.log(err);
     }
@@ -35,19 +34,7 @@ module.exports.insertData = function (sensor, val) {
     }
   });
 };
-module.exports.insertData = function (name, val) {
-  var query = { name: name };
-  var operator = { name: name, value: val };
-  var option = { upsert: true };
-  Nature.replaceOne(query, operator, option, function (err, upserted) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      console.log('updated successfully');
-    }
-  });
-};
+
 
 // User.findOne({email:request.body.email,password:request.body.password},(err,users)=>{
 //     if(err)return response.status(500).send({error: 'database failure'});
