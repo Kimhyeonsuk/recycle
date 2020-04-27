@@ -18,7 +18,7 @@ router.post('/check',(req,res)=>{
     Mat.insertData(checkMetal,req.body.checkMetal);
     Mat.insertData(frequency,req.body.frequency);
     Mat.insertData(sound,req.body.sound);
-
+    console.log('update successfully');
 });
 
 router.get('/readDataAll', (req, res) =>{

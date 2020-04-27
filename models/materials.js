@@ -30,7 +30,7 @@ module.exports.insertData = function (sensor, val) {
       console.log(err);
     }
     else {
-      console.log('updated successfully');
+      console.log('.');
     }
   });
 };
@@ -79,6 +79,8 @@ module.exports.extractData = function (res) {
     secondM:`${sUltramove}`,
     thirdM:`${sound}` 
     };
+
+    console.log('send!');
     res.json(s);
 
   });
