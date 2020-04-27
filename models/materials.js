@@ -42,7 +42,7 @@ module.exports.insertData = function (sensor, val) {
 //     response.send('로그인 성공!'+users.email);
 // });
 module.exports.extractData = function (res) {
-  var entUltramove = '0';//입구 닫고 있어라
+  var entUltramove = '1';//입구 닫고 있어라
   var fUltramove='0';
   var sUltramove='0';
   var sound='0';
@@ -50,11 +50,11 @@ module.exports.extractData = function (res) {
 
   Mat.find( (err, data) => {
     if (err) return res.status(500).send({ err: 'database failure' });
-    if(data[0].value>0){
-      entUltramove='1';
+    if(data[0].value>=0&&data[0].value<=10){
+      entUltramove='0';
     }
 
-    if(data[1].value>0){
+    if(data[1].value>=0&&data[0].value<=10){
       fUltramove='1';
     }
     var s = { entranceM: `${ entUltramove}`,
