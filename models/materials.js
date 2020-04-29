@@ -18,8 +18,7 @@ module.exports.showData = function (sendor) {
   Mat.find((err, data) => {
     console.log(data);
     if (err) return sendor.status(500).send({ err: 'database failure' });
-    var s=`[${data}]`;
-    sendor.json(s);
+    sendor.json(data);
   });
 };
 module.exports.insertData = function (sensor, val) {

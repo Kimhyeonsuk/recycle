@@ -21,7 +21,7 @@ router.post('/check',(req,res)=>{
     console.log('update successfully');
 });
 
-router.get('/readDataAll', (req, res) =>{
+router.post('/readDataAll', (req, res) =>{
    console.log('connect!');
    Mat.showData(res);
 });
