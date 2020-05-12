@@ -5,6 +5,8 @@ const app = express();
 var fs=require('fs');
 var compression=require('compression')
 var mongoose = require('mongoose');
+var server=require('http').createServer(app);
+
 
 //[OCNFIGURE MONGOOSE]
 //CONNECT TO MONGODB SERVER
@@ -37,11 +39,48 @@ app.get('/api/hello',(req,res)=>{
   res.send(req.user);
 });
 
-
-app.listen(3000, () => {
-  console.log("Express connected!");
+server.listen(3000,()=>{
+  console.log("연결");
 });
+// app.listen(3000, () => {
+//   console.log("Express connected!");
+// });
 
+var Mat=require('./models/materials');
+
+
+
+var io=require('socket.io')(server);
+io.on('connection',function(socket){
+  console.log('connect됨');
+  socket.on('disconnect',function(data){
+    console.log('disconnect');
+  });
+  
+  socket.on('SEND',function(data){
+    console.log('데이타',data);
+    data.message="hi";
+    socket.emit(data);
+
+    // Mat.findOne({ sensor: "entUltra" }, (err, rcvdata) => {
+    //     if (err) return res.status(500).send({ err: 'database failure' });
+
+    //     if (rcvdata.value ==-1) {
+    //       data.message='close';
+    //     }
+    //     else if(rcvdata.value>=20){
+          
+    //       data.message='keep opening the door';
+    //     }
+    //     else{
+    //       data.message='close';
+    //     }
+    //     data.message='Message from server: '+data.message;    
+    //     socket.emit('SEND',data);
+    // });
+
+  })
+})
 module.exports = app;
 
 
