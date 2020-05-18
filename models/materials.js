@@ -7,7 +7,7 @@ var materialSchema = new Schema({
 }, { versionKey: false });
 
 
-var Mat = module.exports = mongoose.model('material', materialSchema);
+var Mat = module.exports = mongoose.model('sensor', materialSchema);
 // module.exports.getData=function(dd){
 //     Temp.find((err,data)=>{
 //         if(err)return dd.status(500).send({err:'database failure'});

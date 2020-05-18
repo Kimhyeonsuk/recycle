@@ -61,7 +61,6 @@ io.on('connection',function(socket){
     console.log('데이타',data);
     data.message="hi";
     socket.emit(data);
-
     // Mat.findOne({ sensor: "entUltra" }, (err, rcvdata) => {
     //     if (err) return res.status(500).send({ err: 'database failure' });
 
@@ -78,7 +77,6 @@ io.on('connection',function(socket){
     //     data.message='Message from server: '+data.message;    
     //     socket.emit('SEND',data);
     // });
-
   })
 })
 module.exports = app;
