@@ -48,12 +48,20 @@ module.exports.extractData = function (res) {
     if (err) return res.status(500).send({ err: 'database failure' });
   
 
-    if(data[0].value!=-1){//금속 탐지 값
-
+    if(data[0].value!=0){//금속 탐지 값
+      if(data[0].value==1){
+        resultMaterial="metal"
+      }
     }
-    if(data[1].value!=-1){//사운드 센서 값
+    if(data[1].value!=0){//사운드 센서 값 0,400,650 (trash,plastic,glass)
       if(data[1].value==0){
-        resultMaterial="sound값은 0이다";
+        resultMaterial="trash";
+      }
+      else if(data[1].value==400){
+        resultMaterial="plastic";
+      }
+      else if(data[1].value==650){
+        resultMaterial="glass";
       }
     }
 
@@ -68,7 +76,7 @@ module.exports.extractData = function (res) {
     //   } 
     // }
     
-    var s = { material:`${ resultMaterial}`
+    var s = { material:`${resultMaterial}`
     };
     console.log('send!');
     res.json(s);
