@@ -68,7 +68,7 @@ module.exports.extractData = function (res) {
     //   } 
     // }
     
-    var s = { material:`${ entUltramove}`
+    var s = { material:`${ resultMaterial}`
     };
     console.log('send!');
     res.json(s);
