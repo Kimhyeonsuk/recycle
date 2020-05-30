@@ -5,16 +5,11 @@ var Mat=require('../models/materials');
 /* GET users listing. */
 router.post('/check',(req,res)=>{
     console.log(req.body);
-    var fUltra='fUltra';
-    var sUltra='sUltra';
+
     var checkMetal='checkMetal';
     var frequency='frequency';
-    var sound='sound';
-    Mat.insertData(fUltra,req.body.fUltra);
-    Mat.insertData(sUltra,req.body.sUltra);
-    Mat.insertData(checkMetal,req.body.checkMetal);
-    Mat.insertData(frequency,req.body.frequency);
-    Mat.insertData(sound,req.body.sound);
+    Mat.insertData(checkMetal,req.body.metal);
+    Mat.insertData(frequency,req.body.sound);
     console.log('update successfully');
 });
 router.get('/readDataAll', (req, res) =>{

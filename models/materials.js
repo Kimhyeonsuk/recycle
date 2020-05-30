@@ -41,38 +41,34 @@ module.exports.insertData = function (sensor, val) {
 //     response.send('로그인 성공!'+users.email);
 // });
 module.exports.extractData = function (res) {
-  var entUltramove = -1;//입구 닫고 있어라
-  var fUltramove=-1;
-  var sUltramove=-1;
-  var sound=-1;
+ 
+
+ var resultMaterial;
   Mat.find( (err, data) => {
     if (err) return res.status(500).send({ err: 'database failure' });
   
-    if(data[1].value!=-1){
-      if(data[1]<30){
-        if(data[0]<30){//물건이 들어오고 안드로이드에 경고 보내야함
-          entUltramove=0;//입구 열고 있는다
-        }    
-        else{
-          entUltramove=1;//입구 닫는다.
-        }
-      } 
+
+    if(data[0].value!=-1){//금속 탐지 값
+
     }
-    if(data[2].value!=-1){
-      if(data[2].value==0){
-        fUltramove=3
+    if(data[1].value!=-1){//사운드 센서 값
+      if(data[1].value==0){
+        resultMaterial="sound값은 0이다";
       }
     }
-    if(data[3].value=-1){
 
-    }
-    if(data[4].value=-1){
-
-    }
-    var s = { entranceM: `${ entUltramove}`,
-    firstM:`${fUltramove}`,
-    secondM:`${sUltramove}`,
-    thirdM:`${sound}` 
+    // if(data[1].value!=-1){
+    //   if(data[1]<30){
+    //     if(data[0]<30){//물건이 들어오고 안드로이드에 경고 보내야함
+    //       entUltramove=0;//입구 열고 있는다
+    //     }    
+    //     else{
+    //       entUltramove=1;//입구 닫는다.
+    //     }
+    //   } 
+    // }
+    
+    var s = { material:`${ entUltramove}`
     };
     console.log('send!');
     res.json(s);
