@@ -2,12 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var materialSchema = new Schema({
-  sensor: String,
-  value: Number,
+  standard: String,
+  minVal: Number,
+  maxVal: Number
 }, { versionKey: false });
 
 
-var Mat = module.exports = mongoose.model('sensor', materialSchema);
+var Met = module.exports = mongoose.model('metal', materialSchema);
 // module.exports.getData=function(dd){
 //     Temp.find((err,data)=>{
 //         if(err)return dd.status(500).send({err:'database failure'});
@@ -15,7 +16,7 @@ var Mat = module.exports = mongoose.model('sensor', materialSchema);
 //     });
 // }
 module.exports.showData = function (sendor) {
-  Mat.find((err, data) => {
+  Met.find((err, data) => {
     console.log(data);
     if (err) return sendor.status(500).send({ err: 'database failure' });
     sendor.json(data);
@@ -25,7 +26,7 @@ module.exports.insertData = function (sensor, val) {
   var query = { sensor: sensor };
   var operator = { sensor: sensor, value: val };
   var option = { upsert: true };
-  Mat.replaceOne(query, operator, option, function (err, upserted) {
+  Met.replaceOne(query, operator, option, function (err, upserted) {
     if (err) {
       console.log(err);
     }
@@ -45,7 +46,7 @@ module.exports.extractData = function (res) {
   var fUltramove=-1;
   var sUltramove=-1;
   var sound=-1;
-  Mat.find( (err, data) => {
+  Met.find( (err, data) => {
     if (err) return res.status(500).send({ err: 'database failure' });
   
     if(data[1].value!=-1){
