@@ -4,7 +4,7 @@ var Mat=require('../models/materials');
 
 /* GET users listing. */
 router.post('/check',(req,res)=>{
-    console.log(req.body);
+    console.log('하드웨에 에서 받은값',req.body);
 
     var checkMetal='checkMetal';
     var frequency='frequency';
@@ -17,11 +17,6 @@ router.get('/readDataAll', (req, res) =>{
    Mat.showData(res);
 });
 router.get('/sendvalue',(req,res)=>{
-    //Temp.extractData(res);
-    // var a={boilerStatus:'ON'};
-    // console.log('보낼값',a);
-    // res.json(a);
-   // Nature.extractData(res);
    Mat.extractData(res);
 });
 module.exports = router;
