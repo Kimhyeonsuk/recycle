@@ -10,7 +10,6 @@ router.post('/check',(req,res)=>{
     var frequency='frequency';
     Mat.insertData(checkMetal,req.body.metal);
     Mat.insertData(frequency,req.body.sound);
-    console.log('update successfully');
 });
 router.get('/readDataAll', (req, res) =>{
    console.log('connect!');

@@ -31,7 +31,7 @@ module.exports.extractData = function (res) {
   
 
     if(data[0].value!=0){//금속 탐지 값
-      if(data[0].value==1){
+      if(data[0].value<=1024){
         resultMaterial="metal"
       }
     }
