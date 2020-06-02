@@ -31,8 +31,11 @@ module.exports.extractData = function (res) {
   
 
     if(data[0].value!=0){//금속 탐지 값
-      if(data[0].value<=1024){
-        resultMaterial="metal"
+      if(data[0].value<1023){
+        resultMaterial="Metal"
+      }
+      else{
+        resultMaterial="non-Metal"
       }
     }
     if(data[1].value!=0){//사운드 센서 값 0,400,650 (trash,plastic,glass)
