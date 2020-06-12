@@ -26,19 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(compression());
 //passport 초기화 및 express-session 설정v
 
-
-
-
 var materialrouter=require('./routes/recycleRoute');
 app.use('/recycle',materialrouter);
-
-
-
 
 app.get('/api/hello',(req,res)=>{
   res.send(req.user);
 });
-
 server.listen(3000,()=>{
   console.log("연결");
 });

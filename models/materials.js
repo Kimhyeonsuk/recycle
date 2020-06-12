@@ -30,25 +30,19 @@ module.exports.extractData = function (res) {
     if (err) return res.status(500).send({ err: 'database failure' });
   
 
-    if(data[0].value!=0){//금속 탐지 값
-      if(data[0].value<1023){
-        resultMaterial="Metal"
-      }
-      else{
-        resultMaterial="non-Metal"
-      }
+    if(data[0].value<1023){
+      resultMaterial="Metal"
     }
-    if(data[1].value!=0){//사운드 센서 값 0,400,650 (trash,plastic,glass)
-      if(data[1].value==0){
-        resultMaterial="trash";
-      }
-      else if(data[1].value==400){
-        resultMaterial="plastic";
-      }
-      else if(data[1].value==650){
-        resultMaterial="glass";
-      }
-    }    
+    else if(data[1].value>0&&data[1].value<400){
+      resultMaterial="trash";
+    }
+    else if(data[1].value>=400&&data[1].value<650){
+      resultMaterial="plastic";
+    }
+    else if(data[1].value>=650){
+      resultMaterial="glass";
+    }
+
     var s = { material:`${resultMaterial}`
     };
     console.log('전달하는 내용',resultMaterial);
