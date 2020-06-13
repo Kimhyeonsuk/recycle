@@ -33,10 +33,10 @@ module.exports.extractData = function (res) {
     if(data[0].value<1023){
       resultMaterial="Metal"
     }
-    else if(data[1].value==0){
+    else if(data[1].value==10){
       resultMaterial="trash";
     }
-    else if(data[1].value<100&&data[1].value>0){
+    else if(data[1].value<100&&data[1].value>10){
       resultMaterial="plastic";
     }
     else if(data[1].value>=100){
