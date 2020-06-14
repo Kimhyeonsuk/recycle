@@ -48,9 +48,20 @@ io.on('connection',function(socket){
   });
   
   socket.on('SEND',function(data){
-    console.log('데이타',data);
+    //console.log('데이타',data);
     data.message="hi";
     socket.emit('SEND',data);
+
+    var Nor  = require('./models/numberOfRecycleds');
+    Nor.findOne((err,rcvdata)=>{
+      if (err) return res.status(500).send({ err: 'database failure' });
+
+      console.log(rcvdata);
+      data.message=rcvdata;
+      socket.emit('SEND',data);
+
+      console.log(rcvdata);
+    });
     // Mat.findOne({ sensor: "entUltra" }, (err, rcvdata) => {
     //     if (err) return res.status(500).send({ err: 'database failure' });
 
