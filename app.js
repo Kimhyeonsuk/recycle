@@ -62,7 +62,7 @@ io.on('connection',function(socket){
   plastic: `${rcvdata[3].number}`}
       socket.emit('SEND',s);
 
-      console.log(rcvdata);
+      console.log(s);
     });
     // Mat.findOne({ sensor: "entUltra" }, (err, rcvdata) => {
     //     if (err) return res.status(500).send({ err: 'database failure' });
