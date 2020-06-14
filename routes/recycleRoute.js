@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Mat=require('../models/materials');
-
+var Nor  = require('../models/numberOfRecycleds');
 /* GET users listing. */
 router.post('/check',(req,res)=>{
     console.log('하드웨에 에서 받은값',req.body);
@@ -18,4 +18,8 @@ router.get('/readDataAll', (req, res) =>{
 router.get('/sendvalue',(req,res)=>{
    Mat.extractData(res);
 });
+
+router.get('/numberofrecycle',(req,res)=>{
+   Nor.showData(res);
+})
 module.exports = router;
