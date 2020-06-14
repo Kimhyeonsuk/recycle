@@ -35,9 +35,9 @@ app.get('/api/hello',(req,res)=>{
 server.listen(3000,()=>{
   console.log("연결");
 });
-app.listen(3000, () => {
-  console.log("Express connected!");
-});
+// app.listen(3000, () => {
+//   console.log("Express connected!");
+// });
 
 
 var io=require('socket.io')(server);
