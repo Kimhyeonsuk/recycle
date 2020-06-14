@@ -49,8 +49,7 @@ io.on('connection',function(socket){
   
   socket.on('SEND',function(data){
     //console.log('데이타',data);
-    data.message="hi";
-    socket.emit('SEND',data);
+
 
     var Nor  = require('./models/numberOfRecycleds');
     Nor.find((err,rcvdata)=>{
