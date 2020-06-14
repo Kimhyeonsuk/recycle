@@ -8,7 +8,7 @@ var numOfRecSchema = new Schema({
 }, { versionKey: false });
 
 
-var Nor = module.exports = mongoose.model('numberOfRecycleds', numOfRecSchema);
+var Nor = module.exports = mongoose.model('numberOfItem', numOfRecSchema);
 // module.exports.getData=function(dd){
 //     Temp.find((err,data)=>{
 //         if(err)return dd.status(500).send({err:'database failure'});

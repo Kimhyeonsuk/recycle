@@ -4,6 +4,8 @@ var materialSchema = new Schema({
   sensor: String,
   value: Number,
 }, { versionKey: false });
+
+
 var Mat = module.exports = mongoose.model('sensor', materialSchema);
 module.exports.showData = function (sendor) {
   Mat.find((err, data) => {
