@@ -44,7 +44,7 @@ var io=require('socket.io')(server);
 io.on('connection',function(socket){
   console.log('connect됨');
   var tmp={glass: 0,glassMax:0,metal:0,metalMax:0,plastic:0,plasticMax:0,trash:0,trashmax:0};
- socket.emit("SEND",data);
+ socket.emit("SEND",tmp);
   socket.on('disconnect',function(data){
     console.log('disconnect');
   });
