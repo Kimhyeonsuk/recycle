@@ -8,7 +8,7 @@ var numOfRecSchema = new Schema({
 }, { versionKey: false });
 
 
-var Nor = module.exports = mongoose.model('numberOfRecycled', numOfRec);
+var Nor = module.exports = mongoose.model('numberOfRecycled', numOfRecSchema);
 // module.exports.getData=function(dd){
 //     Temp.find((err,data)=>{
 //         if(err)return dd.status(500).send({err:'database failure'});
@@ -26,7 +26,7 @@ module.exports.insertData = function (sensor, val) {
   var query = { sensor: sensor };
   var operator = { sensor: sensor, value: val };
   var option = { upsert: true };
-  Met.replaceOne(query, operator, option, function (err, upserted) {
+  Nor.replaceOne(query, operator, option, function (err, upserted) {
     if (err) {
       console.log(err);
     }
@@ -42,34 +42,9 @@ module.exports.insertData = function (sensor, val) {
 //     response.send('로그인 성공!'+users.email);
 // });
 module.exports.extractData = function (res) {
-  var entUltramove = -1;//입구 닫고 있어라
-  var fUltramove=-1;
-  var sUltramove=-1;
-  var sound=-1;
+ 
   Nor.find( (err, data) => {
     if (err) return res.status(500).send({ err: 'database failure' });
-  
-    if(data[1].value!=-1){
-      if(data[1]<30){
-        if(data[0]<30){//물건이 들어오고 안드로이드에 경고 보내야함
-          entUltramove=0;//입구 열고 있는다
-        }    
-        else{
-          entUltramove=1;//입구 닫는다.
-        }
-      } 
-    }
-    if(data[2].value!=-1){
-      if(data[2].value==0){
-        fUltramove=3
-      }
-    }
-    if(data[3].value=-1){
-
-    }
-    if(data[4].value=-1){
-
-    }
     var s = { entranceM: `${ entUltramove}`,
     firstM:`${fUltramove}`,
     secondM:`${sUltramove}`,
