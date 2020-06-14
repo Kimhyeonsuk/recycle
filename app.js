@@ -56,10 +56,15 @@ io.on('connection',function(socket){
       if (err) return res.status(500).send({ err: 'database failure' });
 
       console.log(rcvdata);
+      data.glass=rcvdata[0].number;
+      data.can=rcvdata[1].number;
+      data.plastic=rcvdata[3].number;
+      data.trash=rcvdata[2].number;
       var s={glass:`${rcvdata[0].number}` ,
       can: `${rcvdata[1].number}`,
     trash: `${rcvdata[2].number}`,
   plastic: `${rcvdata[3].number}`}
+  data.message=
       socket.emit('SEND',s);
 
       console.log(s);
