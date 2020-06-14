@@ -51,7 +51,7 @@ io.on('connection',function(socket){
   
   socket.on('SEND',function(data){
     //console.log('데이타',data);
-    console.log("안드로이드에서 값 받음")
+    //console.log("안드로이드에서 값 받음")
 
     var Nor  = require('./models/numberOfRecycleds');
     Nor.find((err,rcvdata)=>{
