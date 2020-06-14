@@ -35,40 +35,40 @@ app.get('/api/hello',(req,res)=>{
 server.listen(3000,()=>{
   console.log("연결");
 });
-// app.listen(3000, () => {
-//   console.log("Express connected!");
-// });
+app.listen(3000, () => {
+  console.log("Express connected!");
+});
 
 
-// var io=require('socket.io')(server);
-// io.on('connection',function(socket){
-//   console.log('connect됨');
-//   socket.on('disconnect',function(data){
-//     console.log('disconnect');
-//   });
+var io=require('socket.io')(server);
+io.on('connection',function(socket){
+  console.log('connect됨');
+  socket.on('disconnect',function(data){
+    console.log('disconnect');
+  });
   
-//   socket.on('SEND',function(data){
-//     console.log('데이타',data);
-//     data.message="hi";
-//     socket.emit(data);
-//     // Mat.findOne({ sensor: "entUltra" }, (err, rcvdata) => {
-//     //     if (err) return res.status(500).send({ err: 'database failure' });
+  socket.on('SEND',function(data){
+    console.log('데이타',data);
+    data.message="hi";
+    socket.emit(data);
+    // Mat.findOne({ sensor: "entUltra" }, (err, rcvdata) => {
+    //     if (err) return res.status(500).send({ err: 'database failure' });
 
-//     //     if (rcvdata.value ==-1) {
-//     //       data.message='close';
-//     //     }
-//     //     else if(rcvdata.value>=20){
+    //     if (rcvdata.value ==-1) {
+    //       data.message='close';
+    //     }
+    //     else if(rcvdata.value>=20){
           
-//     //       data.message='keep opening the door';
-//     //     }
-//     //     else{
-//     //       data.message='close';
-//     //     }
-//     //     data.message='Message from server: '+data.message;    
-//     //     socket.emit('SEND',data);
-//     // });
-//   })
-// })
+    //       data.message='keep opening the door';
+    //     }
+    //     else{
+    //       data.message='close';
+    //     }
+    //     data.message='Message from server: '+data.message;    
+    //     socket.emit('SEND',data);
+    // });
+  })
+})
 module.exports = app;
 
 
