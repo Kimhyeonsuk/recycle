@@ -43,6 +43,7 @@ server.listen(3000,()=>{
 var io=require('socket.io')(server);
 io.on('connection',function(socket){
   console.log('connect됨');
+  var tmp={glass: 0,glassMax:0,metal:0,metalMax:0,plastic:0,plasticMax:0,trash:0,trashmax:0};
   socket.on('disconnect',function(data){
     console.log('disconnect');
   });
@@ -58,8 +59,8 @@ io.on('connection',function(socket){
       
       data.glass=rcvdata[0].number;
       data.glassMax=rcvdata[0].max;
-      data.can=rcvdata[1].number;
-      data.canMax=rcvdata[1].max;
+      data.metal=rcvdata[1].number;
+      data.metalMax=rcvdata[1].max;
       data.plastic=rcvdata[3].number;
       data.plasticMax=rcvdata[3].max;
       data.trash=rcvdata[2].number;
