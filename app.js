@@ -53,7 +53,7 @@ io.on('connection',function(socket){
     socket.emit('SEND',data);
 
     var Nor  = require('./models/numberOfRecycleds');
-    Nor.findOne((err,rcvdata)=>{
+    Nor.find((err,rcvdata)=>{
       if (err) return res.status(500).send({ err: 'database failure' });
 
       console.log(rcvdata);
