@@ -55,19 +55,18 @@ io.on('connection',function(socket){
     Nor.find((err,rcvdata)=>{
       if (err) return res.status(500).send({ err: 'database failure' });
 
-      console.log(rcvdata);
+      
       data.glass=rcvdata[0].number;
+      data.glassMax=rcvdata[0].max;
       data.can=rcvdata[1].number;
+      data.canMax=rcvdata[1].max;
       data.plastic=rcvdata[3].number;
+      data.plasticMax=rcvdata[3].max;
       data.trash=rcvdata[2].number;
-      var s={glass:`${rcvdata[0].number}` ,
-      can: `${rcvdata[1].number}`,
-    trash: `${rcvdata[2].number}`,
-  plastic: `${rcvdata[3].number}`}
-  data.message=
-      socket.emit('SEND',s);
-
-      console.log(s);
+      data.trashmax=rcvdata[2].max;
+      console.log(data);
+     
+      socket.emit('SEND',data);
     });
     // Mat.findOne({ sensor: "entUltra" }, (err, rcvdata) => {
     //     if (err) return res.status(500).send({ err: 'database failure' });
