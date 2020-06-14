@@ -51,7 +51,7 @@ module.exports.extractData = function (res) {
     Nor.findOne({ type: `${resultMaterial}` }, (err, value) => {
       var tmp = value.number+1;
       var mx=value.max;
-      console.log(tmp);
+      //console.log(tmp);
       var query = { type: `${resultMaterial}` };
       var operator = {  type: `${resultMaterial}`, number:tmp,max:mx};
       var option = { upsert: true };

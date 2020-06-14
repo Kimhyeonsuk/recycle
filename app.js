@@ -65,7 +65,7 @@ io.on('connection',function(socket){
       data.plasticMax=rcvdata[3].max;
       data.trash=rcvdata[2].number;
       data.trashmax=rcvdata[2].max;
-      console.log(data);
+      //console.log(data);
      
       socket.emit('SEND',data);
     });
