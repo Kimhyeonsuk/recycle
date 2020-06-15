@@ -28,7 +28,8 @@ app.use(compression());
 
 var materialrouter=require('./routes/recycleRoute');
 app.use('/recycle',materialrouter);
-
+var countrouter=require('./routes/countRoute');
+app.use('/android',countrouter);
 app.get('/api/hello',(req,res)=>{
   res.send(req.user);
 });
