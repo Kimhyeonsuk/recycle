@@ -22,19 +22,26 @@ module.exports.showData = function (sendor) {
     sendor.json(data);
   });
 };
-module.exports.insertData = function (sensor, val) {
-  var query = { sensor: sensor };
-  var operator = { sensor: sensor, value: val };
-  var option = { upsert: true };
-  Nor.replaceOne(query, operator, option, function (err, upserted) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      console.log('.');
-    }
-  });
-};
+
+module.exports.modifyData=function(name){
+    Nor.findOne({ type: `${name}` }, (err, value) => {
+        var tmp = 0;
+        var mx=value.max;
+        //console.log(tmp);
+        var query = { type: `${name}` };
+        var operator = {  type: `${name}`, number:tmp,max:mx};
+        var option = { upsert: true };
+        Nor.replaceOne(query, operator, option, function (err, upserted) {
+          if (err) {
+            console.log(err);
+          }
+          else {
+          }
+        });
+  
+      
+      });
+}
 
 // User.findOne({email:request.body.email,password:request.body.password},(err,users)=>{
 //     if(err)return response.status(500).send({error: 'database failure'});
