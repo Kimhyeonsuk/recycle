@@ -6,6 +6,8 @@ router.post('/modify',(req,res)=>{
     console.log('요청 들어옴',req.body.name);
     
     Nor.modifyData(req.body.name);
+    var s={"결과": "성공"};
+    res.json(s);
 });
 
 module.exports = router;
