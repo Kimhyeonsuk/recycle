@@ -13,7 +13,7 @@ router.post('/modify',(req,res)=>{
 
 router.post('/getSettingMax',(req,res)=>{
     console.log(Object.keys(req.body)[0]);
-    var tmp=Object.keys(req.body)[0];
+    var tmp=JSON.parse(Object.keys(req.body)[0]);
     console.log(tmp.glass);
     console.log(tmp.Metal);
     //console.log(req.body.Metal);
