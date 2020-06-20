@@ -21,7 +21,7 @@ module.exports.insertData = function (sensor, val) {
     var mx=val;
     //console.log(tmp);
     var query = { type: `${sensor}` };
-    var operator = {  type: `${sensor}`, number:tmp,max:mx};
+    var operator = {  type: `${sensor}`, number:`${tmp}`,max:`${mx}`};
     var option = { upsert: true };
     Nor.replaceOne(query, operator, option, function (err, upserted) {
       if (err) {
