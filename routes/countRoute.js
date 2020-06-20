@@ -10,4 +10,9 @@ router.post('/modify',(req,res)=>{
     res.json(s);
 });
 
+
+router.post('/getSettingMax',(req,res)=>{
+    console.log('받은 데이터',req.body);
+
+});
 module.exports = router;
