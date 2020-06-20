@@ -12,7 +12,7 @@ router.post('/modify',(req,res)=>{
 
 
 router.post('/getSettingMax',(req,res)=>{
-    console.log('받은 데이터',req.body);
+    console.log('받은 데이터',Object.keys(req.body)[0]);
 
 });
 module.exports = router;

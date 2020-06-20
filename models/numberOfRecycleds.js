@@ -15,6 +15,25 @@ var Nor = module.exports = mongoose.model('item',numOfRecSchema);
 //         dd.json(data);
 //     });
 // }
+module.exports.insertData = function (sensor, val) {
+  Nor.findOne({ type: `${sensor}` }, (err, value) => {
+    var tmp = value.number;
+    var mx=val;
+    //console.log(tmp);
+    var query = { type: `${name}` };
+    var operator = {  type: `${name}`, number:tmp,max:mx};
+    var option = { upsert: true };
+    Nor.replaceOne(query, operator, option, function (err, upserted) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+      }
+    });
+
+  
+  });
+};
 module.exports.showData = function (sendor) {
   Nor.find((err, data) => {
     console.log(data[0]);
@@ -22,7 +41,6 @@ module.exports.showData = function (sendor) {
     sendor.json(data);
   });
 };
-
 module.exports.modifyData=function(name){
     Nor.findOne({ type: `${name}` }, (err, value) => {
         var tmp = 0;
