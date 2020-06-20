@@ -13,8 +13,8 @@ router.post('/modify',(req,res)=>{
 
 router.post('/getSettingMax',(req,res)=>{
     console.log('받은 데이터',Object.keys(req.body)[0]);
-    var tmp=Object.keys(req.body)[0];
-    console.log(tmp.glass);
+    var tmp=JSON.parse(Object.keys(req.body)[0]);
+    console.log(tmp);
     console.log(tmp.Metal);
 
 });
