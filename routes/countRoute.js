@@ -12,15 +12,15 @@ router.post('/modify',(req,res)=>{
 
 
 router.post('/getSettingMax',(req,res)=>{
-    console.log(Object.keys(req.body)[0]);
+    //console.log(Object.keys(req.body)[0]);
     var tmp=JSON.parse(Object.keys(req.body)[0]);
-    console.log(tmp.glass);
-    console.log(tmp.Metal);
+    //console.log(tmp.glass);
+    //console.log(tmp.Metal);
     //console.log(req.body.Metal);
-   //Nor.insertData("glass",req.body.glass);
-   //Nor.insertData("Metal",req.body.Metal);
-   //Nor.insertData("plastic",req.body.plastic);
-   //Nor.insertData("trash",req.body.trash);
+   Nor.insertData("glass",tmp.glass);
+   Nor.insertData("Metal",tmp.Metal);
+   Nor.insertData("plastic",tmp.plastic);
+   Nor.insertData("trash",tmp.trash);
    var s={"결과": "성공"};
     res.json(s);
 
