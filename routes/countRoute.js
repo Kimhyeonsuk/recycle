@@ -12,8 +12,8 @@ router.post('/modify',(req,res)=>{
 
 
 router.post('/getSettingMax',(req,res)=>{
-    console.log(req.body.glass);
-    console.log(req.body.Metal);
+    console.log(req.body);
+    //console.log(req.body.Metal);
    //Nor.insertData("glass",req.body.glass);
    //Nor.insertData("Metal",req.body.Metal);
    //Nor.insertData("plastic",req.body.plastic);
