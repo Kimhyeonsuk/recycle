@@ -17,10 +17,10 @@ router.post('/getSettingMax',(req,res)=>{
     //console.log(tmp.glass);
     //console.log(tmp.Metal);
     //console.log(req.body.Metal);
-   Nor.insertData("glass",tmp.glass);
-   Nor.insertData("Metal",tmp.Metal);
-   Nor.insertData("plastic",tmp.plastic);
-   Nor.insertData("trash",tmp.trash);
+   Nor.setMax("glass",tmp.glass);
+   Nor.setMax("Metal",tmp.Metal);
+   Nor.setMax("plastic",tmp.plastic);
+   Nor.setMax("trash",tmp.trash);
    var s={"결과": "성공"};
     res.json(s);
 

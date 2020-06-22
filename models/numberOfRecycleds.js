@@ -15,7 +15,7 @@ var Nor = module.exports = mongoose.model('item',numOfRecSchema);
 //         dd.json(data);
 //     });
 // }
-module.exports.insertData = function (sensor, val) {
+module.exports.setMax = function (sensor, val) {
   Nor.findOne({ type: `${sensor}` }, (err, value) => {
     var tmp = value.number;
     var mx=val;

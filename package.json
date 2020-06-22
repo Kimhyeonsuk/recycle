@@ -19,6 +19,7 @@
     "express-session": "^1.17.0",
     "helmet": "^3.21.3",
     "http-errors": "~1.6.3",
+    "kalmanjs": "^1.1.0",
     "morgan": "~1.9.1",
     "mustache": "^4.0.0",
     "passport": "^0.4.1",
